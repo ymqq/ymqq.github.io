@@ -1,5 +1,482 @@
-> ymqq.github.io
-> ym_qqchen@sina.com
----
+<!DOCTYPE html>
+<html>
 
-> 专注Android开发
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<style>
+			html,
+			body {
+				background-color: #ffffff;
+				font-family: "黑体", "微软雅黑", "./fonts/Android-FZLTHJW.TTF";
+			}
+			
+			.header {
+				height: 50px;
+				padding: 0;
+				color: #FFFFFF;
+			}
+			
+			.header .mui-table-view-cell {
+				background-color: #ff4400;
+				padding: 7px 15px;
+			}
+			
+			#headerLeft {
+				display: inline-block;
+			}
+			
+			#headerRight {
+				display: inline-block;
+				float: right;
+				padding: 12px 0;
+				margin-right: 40px;
+				font-size: 16px;
+			}
+			
+			.header .title {
+				font-size: 16px;
+			}
+			
+			.header p {
+				color: #ffffff;
+				font-size: 12px;
+			}
+			
+			.header .divider {
+				color: #AF3600;
+			}
+			
+			.mui-bar-tab .mui-tab-item .mui-icon {
+				width: 30px !important;
+				height: 30px !important;
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				background-origin: content-box;
+			}
+			
+			.mui-bar-tab .mui-tab-item .mui-icon~.mui-tab-label {
+				font-size: 12px;
+			}
+			
+			.mui-bar-tab .mui-tab-item {
+				color: #999999;
+			}
+			
+			.mui-bar-tab .mui-tab-item:hover {
+				color: #FF4400;
+			}
+			
+			.fund-management {
+				background-image: url(images/fund-management.png);
+			}
+			
+			.mui-bar-tab .mui-tab-item:hover .fund-management {
+				background-image: url(images/fund-management-active.png);
+			}
+			
+			.site-message {
+				background-image: url(images/site-message.png);
+			}
+			
+			.mui-bar-tab .mui-tab-item:hover .site-message {
+				background-image: url(images/site-message-active.png);
+			}
+			
+			.online-service {
+				background-image: url(images/online-service.png);
+			}
+			
+			.mui-bar-tab .mui-tab-item:hover .online-service {
+				background-image: url(images/online-service-active.png);
+			}
+			
+			.share-link {
+				background-image: url(images/share-link.png);
+			}
+			
+			.mui-bar-tab .mui-tab-item:hover .share-link {
+				background-image: url(images/share-link-active.png);
+			}
+			
+			#slider {
+				height: 160px;
+			}
+			
+			.mui-bar-tab~.mui-content {
+				background-color: #ffffff;
+				padding-top: 50px;
+				padding-bottom: 55px;
+			}
+			
+			.mui-bar-tab {
+				height: 55px;
+			}
+			
+			.game-platform-title {
+				margin-left: 12px;
+				margin-top: 12px;
+				padding-left: 5px;
+				font-size: 12px;
+				border-left: 4px solid #FF302D;
+			}
+			
+			.game-platform-title .divider {
+				display: inline-block;
+				background-color: #f1f1f1;
+				height: 1px;
+				width: 80%;
+				margin-left: 2px;
+				margin-bottom: 3px;
+			}
+			
+			.mui-grid-view.mui-grid-9 {
+				background-color: #FFFFFF;
+				border: 0;
+			}
+			
+			#gridMenuContainer {
+				padding-bottom: 15px;
+			}
+			
+			#gridMenuContainer .mui-table-view-cell {
+				background-color: #FFFFFF;
+				border: 0;
+				padding: 11px 0 0 0;
+			}
+			
+			#gridMenuContainer .mui-table-view-cell .mui-media-body {
+				font-size: 12px;
+			}
+			
+			#gridMenuContainer .mui-table-view-cell>a:not(.mui-btn) {
+				padding: 0;
+			}
+			
+			.grid-menu {
+				width: 55px;
+				height: 55px;
+				border-radius: 10px;
+				padding: 8px;
+				margin: auto;
+			}
+			
+			.grid-menu img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.grid-menu-sports {
+				border: 1px solid #ff302d;
+				background-color: #ff302d;
+			}
+			
+			.grid-menu-happy-lottery {
+				border: 1px solid #8e00fe;
+				background-color: #8e00fe;
+			}
+			
+			.grid-menu-gd-casino {
+				border: 1px solid #19b2ff;
+				background-color: #19b2ff;
+			}
+			
+			.grid-menu-ag-casino {
+				border: 1px solid #ff302d;
+				background-color: #ff302d;
+			}
+			
+			.grid-menu-jb-casino {
+				border: 1px solid #f02c2b;
+				background-color: #f02c2b;
+			}
+			
+			.grid-menu-realtime-lottery {
+				border: 1px solid #ff6100;
+				background-color: #ff6100;
+			}
+			
+			.grid-menu-bestsoft-slotmachine {
+				border: 1px solid #00c87c;
+				background-color: #00c87c;
+			}
+			
+			.grid-menu-sports-live {
+				border: 1px solid #f04b2b;
+				background-color: #f04b2b;
+			}
+			
+			#gridAppContainer .mui-table-view-cell {
+				background-color: #e3e4e6;
+				border: 0;
+				padding: 6px 15px;
+			}
+			
+			#gridAppContainer .mui-table-view-cell .mui-media-body {
+				font-size: 12px;
+			}
+			
+			.grid-app {
+				width: 56px;
+				height: 56px;
+				border-radius: 28px;
+				padding: 10px;
+				margin: auto;
+			}
+			
+			.grid-app img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.grid-app-client {
+				border: 1px solid #f02c2b;
+				background-color: #f02c2b;
+			}
+			
+			.grid-app-touch {
+				border: 1px solid #ff6100;
+				background-color: #ff6100;
+			}
+			
+			.grid-app-web {
+				border: 1px solid #19b2ff;
+				background-color: #19b2ff;
+			}
+			
+			footer {
+				background-color: #F7F7F7;
+				padding: 8px;
+				color: #888888;
+				font-size: 10px;
+				text-align: center;
+			}
+			
+			footer a {
+				color: #888888;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav header">
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right">
+						<img class="mui-media-object mui-pull-left" src="images/index-logo.png">
+						<div class="mui-media-body">
+							<div id="headerLeft">
+								<span class="title">WELLBET</span>
+								<p>&nbsp;吉祥坊&nbsp;</p>
+							</div>
+							<div id="headerRight">
+								<span id="login">&nbsp;登陆 </span>
+								<span class="divider">|</span>
+								<span id="register"> 注册&nbsp;</span>
+							</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a id="defaultTab" class="mui-tab-item" href="ui/fund-management.html">
+				<span class="mui-icon fund-management"></span>
+				<span class="mui-tab-label">资金管理</span>
+			</a>
+			<a class="mui-tab-item" href="ui/site-message.html">
+				<span class="mui-icon site-message"><span class="mui-badge">9</span></span>
+				<span class="mui-tab-label">站内信</span>
+			</a>
+			<a class="mui-tab-item" href="ui/online-service.html">
+				<span class="mui-icon online-service"></span>
+				<span class="mui-tab-label">在线客服</span>
+			</a>
+			<a class="mui-tab-item" href="ui/share-link.html">
+				<span class="mui-icon share-link"></span>
+				<span class="mui-tab-label">分享链接</span>
+			</a>
+		</nav>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!--支持循环，需要重复图片节点-->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#"><img src="http://img5.3lian.com/gaoqing/02/28/29.jpg" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="http://pic.baike.soso.com/p/20131220/20131220051700-1668992300.jpg" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="http://img3.3lian.com/2014/c2/67/d/18.jpg" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="http://img1.sc115.com/uploads/sc/jpg/HD/3/2795.jpg" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="http://img5.3lian.com/gaoqing/02/28/29.jpg" /></a>
+					</div>
+					<!--支持循环，需要重复图片节点-->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#"><img src="http://pic.baike.soso.com/p/20131220/20131220051700-1668992300.jpg" /></a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+
+			<div class="game-platform-title">
+				<span>游戏平台</span>
+				<span class="divider"></span>
+			</div>
+			<ul id="gridMenuContainer" class="mui-table-view mui-grid-view mui-grid-9">
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<div class="grid-menu grid-menu-sports">
+							<img src="images/sports.png" />
+						</div>
+						<div class="mui-media-body">体育</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<div class="grid-menu grid-menu-happy-lottery">
+							<img src="images/happy-lottery.png" />
+						</div>
+						<div class="mui-media-body">快乐彩</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<div class="grid-menu grid-menu-gd-casino">
+							<img src="images/gd-casino.png" />
+						</div>
+						<div class="mui-media-body">GD娱乐城</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<div class="grid-menu grid-menu-ag-casino">
+							<img src="images/ag-casino.png" />
+						</div>
+						<div class="mui-media-body">AG娱乐城</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<div class="grid-menu grid-menu-jb-casino">
+							<img src="images/jb-casino.png" />
+						</div>
+						<div class="mui-media-body">金碧娱乐城</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<div class="grid-menu grid-menu-realtime-lottery">
+							<img src="images/realtime-lottery.png" />
+						</div>
+						<div class="mui-media-body">时时彩</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<div class="grid-menu grid-menu-bestsoft-slotmachine">
+							<img src="images/bestsoft-slotmachine.png" />
+						</div>
+						<div class="mui-media-body">Bestsoft老虎机</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<div class="grid-menu grid-menu-sports-live">
+							<img src="images/sports-live.png" />
+						</div>
+						<div class="mui-media-body">体育直播</div>
+					</a>
+				</li>
+			</ul>
+
+			<ul id="gridAppContainer" class="mui-table-view mui-grid-view mui-grid-9">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+					<a href="#">
+						<div class="grid-app grid-app-client">
+							<img src="images/client.png" />
+						</div>
+						<div class="mui-media-body">客户端</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+					<a href="#">
+						<div class="grid-app grid-app-touch">
+							<img src="images/touch.png" />
+						</div>
+						<div class="mui-media-body">触屏版</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+					<a href="#">
+						<div class="grid-app grid-app-web">
+							<img src="images/web.png" />
+						</div>
+						<div class="mui-media-body">网页版</div>
+					</a>
+				</li>
+			</ul>
+
+			<footer>
+				<a href="ui/about.html">关于我们</a>
+				<span>|</span>
+				<a href="ui/join.html">代理加盟</a>
+				<span>|</span>
+				<a href="ui/question.html">常见问题</a>
+				<span>|</span>
+				<a href="ui/contact-us.html">联系我们</a>
+				<span>|</span>
+				<a href="ui/service-provision.html">服务条款</a>
+				<span>|</span>
+				<a href="ui/privacy-policy.html">隐私政策</a>
+				<span>|</span>
+				<a href="ui/disclaimer.html">免责声明</a>
+			</footer>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			// mui初始化
+			mui.init();
+
+			// 设置定时轮播图片
+			mui('#slider').slider({
+				interval: 2000
+			});
+
+			// 绑定导航按钮点击事件
+			mui('.mui-bar-tab').on('tap', 'a', function(e) {
+				var targetTab = this.getAttribute('href');
+				// 使用openWindow方式可以等待页面load成功后，再进行跳转，避免白屏
+				mui.openWindow({
+					id: targetTab,
+					url: targetTab
+				});
+			});
+
+			mui('footer').on('tap', 'a', function(e) {
+				var targetTab = this.getAttribute('href');
+				// 使用openWindow方式可以等待页面load成功后，再进行跳转，避免白屏
+				mui.openWindow({
+					id: targetTab,
+					url: targetTab
+				});
+			});
+		</script>
+	</body>
+
+</html>
