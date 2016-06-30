@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/common.css" />
+		<link href="../css/mui.picker.css" rel="stylesheet" />
+		<link href="../css/mui.poppicker.css" rel="stylesheet" />
+		
+		<style>
+			.select-bank {
+				height: 44px;
+				padding: 5px 10px;
+				line-height: 34px;
+				background-color: #F7F7F7;
+				color: #333333;
+				font-size: 18px;
+			}
+			.bank-icon {
+				width: 30px;
+				height: 30px;
+				margin-right: 10px;
+			}
+			#showBankPicker {
+				cursor: pointer;
+			}
+			.mui-icon-arrowdown {
+				margin-top: 6px;
+			}
+			
+			#quickSearch {
+				margin-left: 10px;
+				color: #FF4400;
+			}
+			
+			.mui-input-group .mui-input-row {
+				height: auto;
+			}
+			
+			.mui-input-group .mui-input-row label {
+				width: 95px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav"></a>
+			<h1 class="mui-title">添加银行卡</h1>
+		</header>
+		<div class="mui-content">
+			<div class="flex-box select-bank">
+				<img class="bank-icon" src="../images/ico-bank.png"/>
+				<div id='showBankPicker' class="flex-1">
+					民生银行
+					<span class="mui-icon mui-icon-arrowdown mui-pull-right"></span>
+				</div>
+				<span id="quickSearch">快速查询</span>
+			</div>
+			<form class="mui-input-group">
+				<div class="mui-input-row flex-box">
+					<label>用户名</label>
+					<input type="text" class="mui-input-clear flex-1" placeholder="">
+				</div>
+				<div class="mui-input-row flex-box">
+					<label>银行帐号</label>
+					<input type="text" class="mui-input-clear flex-1" placeholder="">
+				</div>
+				<div class="mui-input-row flex-box">
+					<label>银行地址</label>
+					<input type="text" class="mui-input-clear flex-1" placeholder="">
+				</div>
+				<div class="mui-input-row flex-box">
+					<label>备注</label>
+					<textarea class="flex-1" rows="4"></textarea>
+				</div>
+			</form>
+			
+			<div class="btn-container">
+				<button id="confirm" type="button" class="mui-btn mui-btn-block">确 认</button>
+			</div>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.picker.js"></script>
+		<script src="../js/mui.poppicker.js"></script>
+		<script type="text/javascript">
+			(function($, doc) {
+				$.init();
+				var userPicker = new $.PopPicker();
+					userPicker.setData([{
+						value: 'msyh',
+						text: '民生银行'
+					}, {
+						value: 'zgyh',
+						text: '中国银行'
+					}, {
+						value: 'gsyh',
+						text: '工商银行'
+					}, {
+						value: 'nyyh',
+						text: '农业银行'
+					}, {
+						value: 'jsyh',
+						text: '建设银行'
+					}, {
+						value: 'yzyh',
+						text: '邮政银行'
+					}, {
+						value: 'xyyh',
+						text: '兴业银行'
+					}]);
+					var showBankPicker = doc.getElementById('showBankPicker');
+					showBankPicker.addEventListener('tap', function(event) {
+						userPicker.show(function(items) {
+							showBankPicker.innerText = JSON.stringify(items[0]);
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+			}(mui, document));
+		</script>
+	</body>
+
+</html>

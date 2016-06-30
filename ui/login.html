@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/common.css" />
+		<style>
+			.register {
+				color: #FFFFFF;
+				padding: 4px 12px;
+			}
+			
+			.logo {
+				height: 210px;
+				line-height: 210px;
+				font-size: 100px;
+				color: #FFFFFF;
+				text-align: center;
+				background-color: #ff4400;
+			}
+			
+			.mui-input-group {
+				margin-top: 10px;
+			}
+			.mui-input-group .mui-input-row label {
+				width: 75px;
+			}
+			
+			.forget {
+				color: #FF4400;
+				font-size: 15px;
+				margin-top: 8px;
+				font-family: "黑体", "微软雅黑", "./fonts/Android-FZLTHJW.TTF";
+			}
+			
+			.copyright {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				text-align: center;
+				padding: 20px;
+				font-size: 12px;
+				font-family: "黑体", "微软雅黑", "./fonts/Android-FZLTHJW.TTF";
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<a href="register.html" class="mui-title mui-text-right register">注册</a>
+			<div class="logo">
+				乐赢
+			</div>
+			<form class="mui-input-group">
+				<div class="mui-input-row flex-box">
+					<label>用户名</label>
+					<input type="text" class="mui-input-clear flex-1" placeholder="">
+				</div>
+				<div class="mui-input-row flex-box">
+					<label>密码</label>
+					<input type="password" class="mui-input-clear flex-1" placeholder="">
+				</div>
+				<div class="mui-input-row mui-checkbox mui-left flex-box">
+					<label for="rememberPwd" class="flex-1">记住密码</label>
+					<input id="rememberPwd" name="checkbox" value="Item 1" type="checkbox">
+					<a class="forget" href="javascript;">忘记密码？</a>
+				</div>
+			</form>
+
+			<div class="btn-container">
+				<button id="login" type="button" class="mui-btn mui-btn-block mui-btn-danger" onclick="return false;">登 录</button>
+			</div>
+
+			<div class="copyright">
+				CopyRight &copy;2015-2016 leying.com
+			</div>
+		</div>
+
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

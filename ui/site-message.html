@@ -8,119 +8,336 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/common.css" />
+		<link href="../css/mui.picker.css" rel="stylesheet" />
+		<link href="../css/mui.poppicker.css" rel="stylesheet" />
 		<style>
-			html,
-			body {
-				background-color: #efeff4;
+			header.mui-bar-nav {
+				-webkit-box-shadow: 0 0 0 #FF4400;
+				box-shadow: 0 0 0 #FF4400;
 			}
-			.title {
-				padding: 20px 15px 10px;
-				color: #6d6d72;
+			
+			header img {
+				width: 30px;
+				height: 30px;
+				margin-top: 7px;
+			}
+			
+			.tab-bar-container {
+				padding: 7px 20px;
+				background-color: #FF4400;
+			}
+			
+			.mui-segmented-control {
+				height: 35px;
+				border: 1px solid #FFFFFF;
+				color: #FFFFFF;
+				border-radius: 5px;
+				font-size: 16px;
+			}
+			
+			.mui-segmented-control .mui-control-item {
+				color: #FFFFFF;
+				border-left: 1px solid #FFFFFF;
+			}
+			
+			.mui-segmented-control .mui-control-item.mui-active {
+				background-color: #F7F7F7;
+				color: #FF4400;
+			}
+			
+			.read-status-icon {
+				width: 15px;
+				height: 15px;
+				margin: 4px 8px 0 6px;
+			}
+			
+			.msg-title {
 				font-size: 15px;
-				background-color: #fff;
+				color: #333333;
+			}
+			
+			.msg-time {
+				font-size: 10px;
+				color: #888888;
+			}
+			
+			.mui-table-view .mui-table-view-cell {
+				height: 50px;
+				padding: 15px;
+			}
+			
+			#receivedMsgDetail {
+				display: none;
+				background-color: #F7F7F7;
+			}
+			
+			#messageTitle {
+				padding-top: 20px;
+				color: #333333;
+				font-size: 18px;
+				text-align: center;
+			}
+			
+			#messageTime {
+				padding-left: 25px;
+				margin: 10px 0 6px 0;
+				color: #888888;
+				font-size: 10px;
+			}
+			
+			#messageDetail p {
+				padding: 0 25px;
+				margin: 0;
+				color: #555555;
+				font-size: 14px;
+				text-indent: 2em;
+			}
+			
+			#receivedMsgDetail .btn-container {
+				padding: 20px 12px 20px 12px;
+			}
+			
+			#receivedMsgDetailBack {
+				background-color: #999999;
+				margin-right: 10px;
+			}
+			
+			#gridContainer {
+				border: 0;
+				background-color: #FFFFFF;
+				padding: 15px 20px;
+			}
+			
+			#gridContainer .mui-table-view-cell {
+				background-color: #FFFFFF;
+				border: 0;
+				padding: 11px 0 0 0;
+			}
+			#gridContainer.mui-grid-view.mui-grid-9 .mui-table-view-cell {
+				border: 0;
+				padding: 0 10px;
+				margin: 0;
+				height: auto;
+			}
+			
+			#gridContainer .mui-table-view-cell .mui-media-body {
+				font-size: 12px;
+			}
+			
+			#gridContainer .mui-table-view-cell>a:not(.mui-btn) {
+				padding: 0;
+			}
+			
+			.grid-menu {
+				width: 60px;
+				height: 60px;
+				margin: auto;
+			}
+			
+			.grid-menu img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.mui-input-group .mui-input-row {
+				height: auto;
+			}
+			
+			.mui-input-group .mui-input-row label {
+				width: 80px;
+			}
+			
+			#sendTo span {
+				line-height: 22px;
+			}
+			#sendTo .mui-icon-arrowdown {
+				margin-right: 4px;
+				font-size: 18px;
 			}
 		</style>
 	</head>
 
 	<body>
-		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
-			<div class="mui-scroll">
-				<div class="title">
-					这是webview模式选项卡中的第2个子页面，该页面展示一个支持下拉刷新、上拉加载的消息列表
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav"></a>
+			<a href="../index.html" class="mui-pull-right"><img src="../images/home.png"></img>
+			</a>
+			<h1 class="mui-title">站内信</h1>
+		</header>
+		<div class="mui-content">
+			<div class="tab-bar-container">
+				<div id="segmentedControl" class="mui-segmented-control">
+					<a class="mui-control-item mui-active" href="#item1">收件箱</a>
+					<a class="mui-control-item" href="#item2">发件箱</a>
+					<a class="mui-control-item" href="#item3">写新件箱</a>
 				</div>
-				<ul class="mui-table-view mui-table-view-chevron">
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 1</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 2</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 3</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 4</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 5</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 6</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 7</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 8</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 9</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 10</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 11</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 12</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 13</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 14</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 15</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 16</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 17</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 18</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 19</a>
-					</li>
-					<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 20</a>
-					</li>
-				</ul>
+			</div>
+			<div id="item1" class="mui-control-content mui-active">
+				<div id="receivedMsgList">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell flex-box">
+							<img class="read-status-icon" src="../images/unread.png" />
+							<div class="msg-title flex-1">UED手机体育500万红包打派</div>
+							<div class="msg-time">2016/06/30</div>
+						</li>
+						<li class="mui-table-view-cell flex-box">
+							<img class="read-status-icon" src="../images/unread.png" />
+							<div class="msg-title flex-1">UED手机体育500万红包打派</div>
+							<div class="msg-time">2016/06/30</div>
+						</li>
+						<li class="mui-table-view-cell flex-box">
+							<img class="read-status-icon" src="../images/read.png" />
+							<div class="msg-title flex-1">UED手机体育500万红包打派</div>
+							<div class="msg-time">2016/06/30</div>
+						</li>
+						<li class="mui-table-view-cell flex-box">
+							<img class="read-status-icon" src="../images/unread.png" />
+							<div class="msg-title flex-1">UED手机体育500万红包打派</div>
+							<div class="msg-time">2016/06/30</div>
+						</li>
+					</ul>
+				</div>
+				<div id="receivedMsgDetail">
+					<p id="messageTitle">西班牙足球甲级联赛</p>
+					<p id="messageTime">时间：2016/06/30 16:37</p>
+					<div id="messageDetail">
+						<p>1 所有支票的收款人都应是“英孚国际语言学校”。 All cheques should be made out to 'EF International Language Schools' 柯林斯例句库 2 申请得到处理后，您就可以提交一份新的申请，并提供更正后的收款人姓名和邮寄地址。 Applications received after that you can submit a new application and provide corrected payee names and
+							mailing addresses. danci.911cha.com 3 我们将会尽快给您发收款人地址和姓名。 We will send you the name of privat person and the address ASAP. blog.sina.com.cn 4 请您将收款人的姓名和地
+						</p>
+					</div>
+					<div class="btn-container flex-box">
+						<button id="receivedMsgDetailBack" type="button" class="mui-btn flex-1">返 回</button>
+						<button id="receivedMsgDetailDel" type="button" class="mui-btn flex-1">删 除</button>
+					</div>
+					<ul id="gridContainer" class="mui-table-view mui-grid-view mui-grid-9">
+						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+							<a href="#">
+								<div class="grid-menu grid-menu-sports">
+									<img src="../images/ico-gicc.png" />
+								</div>
+								<div class="mui-media-body">GICC牌照</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+							<a href="#">
+								<div class="grid-menu grid-menu-happy-lottery">
+									<img src="../images/ico-hjbsd.png" />
+								</div>
+								<div class="mui-media-body">皇家贝蒂斯</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+							<a href="#">
+								<div class="grid-menu grid-menu-gd-casino">
+									<img src="../images/ico-xj.png" />
+								</div>
+								<div class="mui-media-body">西甲</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+							<a href="#">
+								<div class="grid-menu grid-menu-ag-casino">
+									<img src="../images/ico-htf.png" />
+								</div>
+								<div class="mui-media-body">赫塔菲</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="item2" class="mui-control-content">
+
+			</div>
+			<div id="item3" class="mui-control-content">
+				<form class="mui-input-group">
+					<div class="mui-input-row flex-box">
+						<label>发送至</label>
+						<button id="sendTo" type="button" class="mui-btn flex-1">
+							<span id="sendToText">财务问题</span>
+							<span class="mui-icon mui-icon-arrowdown mui-pull-right"></span>
+						</button>
+					</div>
+					<div class="mui-input-row flex-box">
+						<label>标题</label>
+						<input type="text" class="mui-input-clear flex-1" placeholder="">
+					</div>
+					<div class="mui-input-row flex-box">
+						<label>信息内容</label>
+						<textarea class="flex-1" rows="4"></textarea>
+					</div>
+				</form>
+
+				<div class="btn-container">
+					<button id="confirm" type="button" class="mui-btn mui-btn-block">发 送</button>
+				</div>
 			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.picker.js"></script>
+		<script src="../js/mui.poppicker.js"></script>
 		<script>
-			mui.init({
-				swipeBack: false,
-				pullRefresh: {
-					container: '#pullrefresh',
-					down: {
-						callback: pulldownRefresh
-					},
-					up: {
-						contentrefresh: '正在加载...',
-						callback: pullupRefresh
-					}
-				}
-			});
-			/**
-			 * 下拉刷新具体业务实现
-			 */
-			function pulldownRefresh() {
-				setTimeout(function() {
-					var table = document.body.querySelector('.mui-table-view');
-					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-					for (var i = cells.length, len = i + 3; i < len; i++) {
-						var li = document.createElement('li');
-						li.className = 'mui-table-view-cell';
-						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
-						//下拉刷新，新纪录插到最前面；
-						table.insertBefore(li, table.firstChild);
-					}
-					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
-				}, 1000);
-			}
-			var count = 0;
-			/**
-			 * 上拉加载具体业务实现
-			 */
-			function pullupRefresh() {
-				setTimeout(function() {
-					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
-					var table = document.body.querySelector('.mui-table-view');
-					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-					for (var i = cells.length, len = i + 20; i < len; i++) {
-						var li = document.createElement('li');
-						li.className = 'mui-table-view-cell';
-						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
-						table.appendChild(li);
-					}
-				}, 1000);
-			}
+			(function($, win, doc) {
+				$.init();
+
+				var headerH = $('header')[0].clientHeight,
+					tabBarH = $('.tab-bar-container')[0].clientHeight,
+					scrollContainerH = win.innerHeight - headerH - tabBarH;
+				$('.mui-control-content').each(function() {
+					this.style.height = scrollContainerH + 'px';
+				});
+
+				var receivedMsgList = doc.querySelector('#receivedMsgList'),
+					receivedMsgDetail = doc.querySelector('#receivedMsgDetail');
+				var currentItem;
+				$('#receivedMsgList ul').on('tap', 'li', function() {
+					receivedMsgList.style.display = 'none';
+					receivedMsgDetail.style.display = 'block';
+					currentItem = this;
+				});
+
+				$('#receivedMsgDetail').on('tap', '#receivedMsgDetailBack', function() {
+					receivedMsgList.style.display = 'block';
+					receivedMsgDetail.style.display = 'none';
+				});
+
+				$('#receivedMsgDetail').on('tap', '#receivedMsgDetailDel', function() {
+					receivedMsgList.style.display = 'block';
+					receivedMsgDetail.style.display = 'none';
+					currentItem.remove();
+				});
+				
+				var sendToPicker = new $.PopPicker();
+				sendToPicker.setData([{
+					value: 'cwwt',
+					text: '财务问题'
+				}, {
+					value: 'jswt',
+					text: '技术问题'
+				}, {
+					value: 'ywzx',
+					text: '业务咨询'
+				}, {
+					value: 'yjjy',
+					text: '意见建议'
+				}, {
+					value: 'xxsh',
+					text: '信息审核'
+				}, {
+					value: 'qtwt',
+					text: '其他问题'
+				}]);
+				var sendTo = doc.getElementById('sendTo'),
+					sendToText = doc.getElementById('sendToText');
+				sendTo.addEventListener('tap', function(event) {
+					sendToPicker.show(function(items) {
+						sendToText.innerText = items[0].text;
+						//返回 false 可以阻止选择框的关闭
+						//return false;
+					});
+				}, false);
+			}(mui, window, document));
 		</script>
 	</body>
+
 </html>

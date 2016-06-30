@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/common.css" />
+		<style>
+			.bank-info {
+				height: 44px;
+				padding: 5px 10px;
+				background-color: #F7F7F7;
+			}
+			
+			.bank-icon {
+				width: 32px;
+				height: 32px;
+				margin-right: 10px;
+			}
+			
+			.bank-name {
+				font-size: 18px;
+				color: #333333;
+				font-weight: normal;
+				margin: -1px 0;
+			}
+			
+			.bank-card-valid,
+			.bank-card-nbr {
+				font-size: 12px;
+				color: #999999;
+			}
+			
+			.bank-info .mui-icon-info-filled {
+				margin-top: 4px;
+				color: #b4b4b4;
+			}
+			
+			.dlg-wrapper {
+				display: none;
+				z-index: 500;
+				position: fixed;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				background-color: #000000;
+				opacity: 0.75;
+			}
+			
+			.dlg-container {
+				position: fixed;
+				top: 50%;
+				left: 0;
+				height: 390px;
+				width: 90%;
+				margin: -200px 5% 0 5%;
+				border-radius: 6px;
+				background-color: #FFFFFF;
+			}
+			
+			.dlg-header {
+				height: 44px;
+				line-height: 44px;
+				text-align: center;
+			}
+			
+			.dlg-header img {
+				width: 30px;
+				height: 30px;
+				margin-bottom: -8px;
+				margin-right: 0;
+			}
+			
+			.dlg-container .mui-input-group {
+				padding: 0 12px;
+			}
+			
+			.dlg-container .mui-input-group .mui-input-row label {
+				width: 94px;
+			}
+			
+			.dlg-container .mui-input-group .mui-input-row span {
+				font-size: 15px;
+				line-height: 36px;
+				color: #CC3600;
+			}
+			
+			.mui-input-group .mui-input-row .mui-radio label {
+				text-align: left;
+				margin-left: 16px;
+				font-size: 15px;
+				color: #CC3600;
+			}
+			
+			.mui-input-group .mui-input-row .mui-radio input {
+				border: 0;
+				text-align: right;
+				left: -6px;
+				margin-top: -6px;
+			}
+			
+			.mui-input-group .mui-input-row .mui-radio input:before {
+				font-size: 20px;
+				line-height: 30px;
+			}
+			.mui-radio input[type=radio]:checked:before {
+				color: #CC3600;
+			}
+			
+			#resend {
+				border: 1px solid #FF4400;
+				color: #e63d00;
+				font-size: 15px;
+				width: 80px;
+				height: 35px;
+				margin-left: 10px;
+			}
+			#cancel {
+				background-color: #999999;
+				margin-right: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav"></a>
+			<h1 class="mui-title">银行卡管理</h1>
+		</header>
+		<div class="mui-content">
+			<a href="#" class="flex-box bank-info">
+				<img class="bank-icon" src="../images/ico-bank.png" />
+				<div class="flex-1">
+					<h4 class="bank-name">兴业银行</h4>
+					<span class="bank-card-valid">未验证</span>
+					<span class="bank-card-nbr">622908979878874217889</span>
+				</div>
+				<span class="mui-icon mui-icon-info-filled"></span>
+			</a>
+		</div>
+		<div id="validBankCardDlg" class="dlg-wrapper">
+			<div class="dlg-container">
+				<div class="dlg-header">
+					<img class="bank-icon" src="../images/ico-bank.png" />
+					<span class="dlg-title">民生银行</span>
+				</div>
+				<form class="mui-input-group">
+					<div class="mui-input-row flex-box">
+						<label>汇款人帐号</label>
+						<span class="flex-1">***34598725394</span>
+					</div>
+					<div class="mui-input-row flex-box">
+						<label>收款人</label>
+						<span class="flex-1">张家辉</span>
+					</div>
+					<div class="mui-input-row flex-box">
+						<label>状态</label>
+						<span class="flex-1">未验证</span>
+					</div>
+					<div class="mui-input-row flex-box">
+						<label>验证方式</label>
+						<div class="flex-1 flex-box">
+							<div class="mui-radio flex-1">
+								<label for="validByEmail">电子邮件</label>
+								<input id="validByEmail" name="validMethod" type="radio">
+							</div>
+							<div class="mui-radio mui-left flex-1">
+								<label for="validBySms">手机短信</label>
+								<input id="validBySms" name="validMethod" type="radio">
+							</div>
+						</div>
+					</div>
+					<div class="mui-input-row flex-box">
+						<input type="text" class="mui-input-clear flex-1" placeholder="短信验证码">
+						<button id="resend" type="button" class="mui-btn">重新发送</button>
+					</div>
+				</form>
+				<div class="btn-container flex-box">
+					<button id="cancel" type="button" class="mui-btn mui-btn-block flex-1">取 消</button>
+					<button id="continue" type="button" class="mui-btn mui-btn-block flex-1">继 续</button>
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			(function($, doc) {
+				$.init();
+				var validBankCardDlg = doc.getElementById('validBankCardDlg');
+				$('.mui-content').on('tap', 'a', function() {
+					validBankCardDlg.querySelector('.dlg-title').innerText = this.querySelector('.bank-name').innerText;
+					validBankCardDlg.style.display = 'block';
+				});
+				
+				$('#validBankCardDlg').on('tap', '#cancel', function() {
+					validBankCardDlg.style.display = 'none';
+				});
+			}(mui, document));
+		</script>
+	</body>
+</html>

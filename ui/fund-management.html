@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8">
 		<title>Hello MUI</title>
@@ -8,31 +9,613 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/common.css">
+		<link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css" />
 		<style>
-			html,body {
-				background-color: #efeff4;
+			html,
+			body {
+				background-color: #FFFFFF;
 			}
-			.title{
-				margin: 20px 15px 10px;
-				color: #6d6d72;
+			
+			.mui-control-content {
+				background-color: #FFFFFF;
+			}
+			
+			.mui-slider {
+				background-color: #FFFFFF;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item {
+				color: #888888;
+				font-size: 16px;
+				background-color: #F7F7F7;
+				height: 44px;
+				line-height: 44px;
+				border-bottom: 1px solid #cacbcc;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				color: #e53d00;
+				font-weight: bold;
+				background-color: #F7F7F7;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted~.mui-slider-progress-bar {
+				height: 3px;
+				background-color: #FF4400;
+				margin-top: -3px;
+			}
+			
+			.mui-slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item {
+				border: 0;
+				padding: 17px 12px;
+			}
+			
+			.account-balance {
+				font-size: 14px;
+				color: #888888;
+				margin-bottom: 17px;
+			}
+			
+			#currency {
+				padding-left: 12px;
+				color: #E53D00;
 				font-size: 15px;
+				font-weight: bold;
+			}
+			
+			#balance {
+				font-weight: normal;
+				color: #E53D00;
+				font-size: 15px;
+			}
+			
+			.mui-card {
+				margin: 0;
+			}
+			
+			.mui-card .mui-table-view .mui-table-view-cell {
+				padding: 10px 20px;
+			}
+			
+			.mui-card .mui-table-view .mui-table-view-cell:after {
+				height: 0;
+			}
+			
+			.mui-table-view .mui-media-body {
+				font-size: 18px;
+				color: #333333;
+			}
+			
+			.mui-table-view .mui-media-object {
+				line-height: 48px;
+				max-width: 48px;
+				height: 48px;
+			}
+			
+			.collect {
+				line-height: 26px !important;
+				max-width: 26px !important;
+				height: 26px !important;
+				margin-top: 10px;
+			}
+			
+			.mui-table-view .mui-media-body p {
+				color: #888888;
+				padding-top: 6px;
+				font-size: 14px;
+			}
+			
+			.mui-table-view .mui-media-body p img {
+				width: 20px !important;
+				height: 20px;
+				margin-bottom: -5px;
+				margin-left: 10px;
+			}
+			
+			.operation {
+				background-color: #F7F7F7;
+				border-top: 1px solid #E3E4E6;
+			}
+			
+			.operation a {
+				display: inline-block;
+				text-align: center;
+				width: 50%;
+				height: 35px;
+				line-height: 35px;
+				font-size: 15px;
+				color: #555555;
+			}
+			
+			.operation a:first-child {
+				border-right: 1px solid #E3E4E6;
+			}
+			
+			.operation img {
+				width: 16px !important;
+				height: 16px;
+				margin-bottom: -3px;
+				margin-right: 5px;
+			}
+			
+			.date-picker {
+				background-color: #F7F7F7;
+				border-radius: 5px;
+				border: 1px solid #DDDDDD;
+			}
+			
+			.date-picker a {
+				text-align: center;
+				width: auto;
+				height: 44px;
+				line-height: 44px;
+				font-size: 15px;
+				color: #555555;
+			}
+			
+			.date-picker a {
+				border-right: 1px solid #E3E4E6;
+			}
+			
+			.date-picker a:last-child {
+				width: 40px;
+				border: 0;
+			}
+			
+			.date {
+				width: 26px !important;
+				height: 26px;
+				margin-bottom: -6px;
+				margin-right: 5px;
+			}
+			
+			#emptyTradeList {
+				margin-top: 85px;
+				text-align: center;
+			}
+			
+			#emptyTradeList img {
+				width: 155px;
+				height: 65px;
+			}
+			
+			#emptyTradeList .tips {
+				margin-top: 30px;
+				font-size: 16px;
+				color: #888888;
+			}
+			
+			#emptyTradeList .tips img {
+				width: 14px;
+				height: 14px;
+				margin-bottom: -2px;
+				margin-right: 4px;
+			}
+			
+			.mui-input-group {
+				padding: 11px 30px;
+			}
+			
+			.mui-input-group:before,
+			.mui-input-group:after {
+				height: 0;
+			}
+			
+			.mui-input-group .mui-input-row label {
+				width: 85px;
+			}
+			
+			#item2mobile,
+			#item3mobile {
+				padding: 0;
+				background-color: #E3E4E6;
+			}
+			
+			#item2mobile>div {
+				padding: 12px;
+				background-color: #FFFFFF;
+			}
+			
+			#item2mobile .mui-input-group {
+				border: ;
+			}
+			
+			#item2mobile .status {
+				text-align: center;
+				padding: 3px 0 15px 0;
+				color: #888888;
+				font-size: 14px;
+			}
+			
+			#online {
+				display: none;
+			}
+			
+			.select-payee {
+				height: 70px;
+				line-height: 60px;
+				border: 1px solid #DDDDDD;
+				border-radius: 5px;
+				border-top: 7.5px solid #E53D00;
+			}
+			
+			.bank-icon {
+				width: 32px !important;
+				height: 32px;
+				margin: 14px 10px 0 20px;
+			}
+			
+			.bank-name {
+				font-size: 18px;
+				color: #333333;
+			}
+			
+			.payee-name {
+				font-size: 18px;
+				color: #888888;
+				text-align: center;
+			}
+			
+			.bank-info .mui-icon-info-filled {
+				margin-top: 4px;
+				color: #b4b4b4;
+			}
+			
+			.payee-card-info {
+				border: 1px solid #DDDDDD;
+				padding: 0;
+				border-radius: 5px;
+				margin-top: 12px;
+			}
+			
+			.payee-card-info .mui-input-row span {
+				font-size: 15px;
+				line-height: 36px;
+				color: #CC3600;
+			}
+			
+			.bank-info-icon {
+				width: 32px !important;
+				height: 32px;
+				margin: 2px;
+			}
+			
+			.bank-card-link {
+				margin-top: -25px;
+				color: #888888;
+			}
+			
+			.bank-card-link a {
+				color: #888888;
+				margin: 0 10px;
+			}
+			
+			.bank-address {
+				height: 70px;
+				line-height: 40px;
+				border: 1px solid #DDDDDD;
+				border-radius: 5px;
+				border-top: 7.5px solid #E53D00;
+				padding: 0 6px 0 4px;
+			}
+			
+			.bank-address label {
+				width: 85px;
+				text-align: right;
+				font-size: 15px;
+				font-family: "黑体", "微软雅黑", "./fonts/Android-FZLTHJW.TTF";
+				padding: 11px 10px 11px 4px;
+				color: #888888;
+			}
+			
+			.bank-address .bank-info-icon {
+				width: 32px !important;
+				height: 32px;
+				margin-top: 14px;
+			}
+			
+			.bank-address span {
+				font-size: 15px;
+				line-height: 61px;
+			}
+			
+			.spinner span {
+				line-height: 22px !important;
+				color: #333333 !important;
+			}
+			
+			.spinner .mui-icon-arrowdown {
+				margin-right: 4px !important;
+				font-size: 18px !important;
 			}
 		</style>
 	</head>
+
 	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="pageTitle" class="mui-title">资金管理-转账</h1>
+			<a class="mui-icon-search mui-icon mui-icon-right-nav mui-pull-right"></a>
+		</header>
 		<div class="mui-content">
-			<div class="title">
-				<p>这是webview模式选项卡的第1个子页面</p>
-				<p>何谓webview模式？其实就是每个选项卡内容都是一个独立的webview，彼此之间互相独立、互不影响；
-					对于较为复杂的业务系统，推荐使用该模式。</p>
-				<p>基于webview模式的选项卡，支持原生加速的下拉刷新，点击第二个选项卡（“消息”），切换选项卡，体验下拉刷新；</p>
+			<div id="slider" class="mui-slider">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item mui-active" href="#item1mobile">转账</a>
+					<a class="mui-control-item" href="#item2mobile">转入</a>
+					<a class="mui-control-item" href="#item3mobile">转出</a>
+					<a class="mui-control-item" href="#item4mobile">记录明细</a>
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-3"></div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div class="account-balance">
+							主账户余额<span id="currency">RMB：</span><span id="balance">4767.00</span>
+						</div>
+						<div class="mui-card" style="margin-bottom: 12px;">
+							<ul class="mui-table-view">
+								<li class="mui-table-view-cell mui-media">
+									<img class="mui-media-object mui-pull-left" src="../images/ico-htf.png">
+									<img class="mui-media-object mui-pull-right collect" src="../images/collect.png">
+									<div class="mui-media-body">
+										吉祥体育中心
+										<p class='mui-ellipsis'>连接中断<img src="../images/disconnect.png" /></p>
+									</div>
+								</li>
+								<div class="operation">
+									<a class="mui-pull-left">
+										<img src="../images/turn-in.png" />转入
+									</a>
+									<a>
+										<img src="../images/turn-out.png" />转出
+									</a>
+								</div>
+							</ul>
+						</div>
+						<div class="mui-card" style="margin-bottom: 12px;">
+							<ul class="mui-table-view">
+								<li class="mui-table-view-cell mui-media">
+									<img class="mui-media-object mui-pull-left" src="../images/ico-htf.png">
+									<img class="mui-media-object mui-pull-right collect" src="../images/collect.png">
+									<div class="mui-media-body">
+										吉祥体育中心
+										<p class='mui-ellipsis'>刚刚刷新<img src="../images/refresh.png" /></p>
+									</div>
+								</li>
+								<div class="operation">
+									<a class="mui-pull-left">
+										<img src="../images/turn-in.png" />转入
+									</a>
+									<a>
+										<img src="../images/turn-out.png" />转出
+									</a>
+								</div>
+							</ul>
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div id="online">
+							<div class="status">------ 在线状态 ------</div>
+							<div class="select-payee flex-box">
+								<img class="bank-icon" src="../images/ico-bank.png" />
+								<div class="flex-1 bank-name">
+									兴业银行
+								</div>
+								<div class="flex-1 payee-name">
+									<span id="payeeName">王燕红</span><span class="mui-icon mui-icon-arrowdown"></span>
+								</div>
+								<img class="bank-icon" src="../images/info.png" />
+							</div>
+							<form class="mui-input-group payee-card-info">
+								<div class="mui-input-row flex-box">
+									<label>收款人</label>
+									<span class="flex-1">王燕红</span>
+									<img class="bank-info-icon" src="../images/info.png" />
+								</div>
+								<div class="mui-input-row flex-box">
+									<label>收款帐号</label>
+									<span class="flex-1">***7987987234***</span>
+									<img class="bank-info-icon" src="../images/info.png" />
+								</div>
+								<div class="mui-input-row flex-box">
+									<label>收款地址</label>
+									<span class="flex-1">广东省广州市天河区分开多久ad</span>
+									<img class="bank-info-icon" src="../images/info.png" />
+								</div>
+							</form>
+						</div>
+						<div id="offline">
+							<div class="status">------ 离线状态 ------</div>
+							<div class="bank-address flex-box">
+								<label>收款地址</label>
+								<span class="flex-1">广东省广州市天河区分开多久ad</span>
+								<img class="bank-info-icon" src="../images/info.png" />
+							</div>
+							<form class="mui-input-group payee-card-info">
+								<div class="mui-input-row flex-box">
+									<label>汇款人</label>
+									<input type="text" class="mui-input-clear flex-1" placeholder="">
+								</div>
+								<div class="mui-input-row flex-box">
+									<label>汇款帐号</label>
+									<input type="text" class="mui-input-clear flex-1" placeholder="">
+								</div>
+								<div class="mui-input-row flex-box">
+									<label>汇款金额</label>
+									<input type="text" class="mui-input-clear flex-1" placeholder="">
+								</div>
+								<div class="mui-input-row flex-box">
+									<label>汇款银行</label>
+									<button id="remittanceBank" type="button" class="spinner mui-btn flex-1">
+										<span id="remittanceBankText">点击选择</span>
+										<span class="mui-icon mui-icon-arrowdown mui-pull-right"></span>
+									</button>
+								</div>
+								<div class="mui-input-row flex-box">
+									<label>汇款方式</label>
+									<button id="remittanceMethod" type="button" class="mui-btn flex-1 spinner">
+										<span id="remittanceMethodText">点击选择</span>
+										<span class="mui-icon mui-icon-arrowdown mui-pull-right"></span>
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<form class="mui-input-group">
+							<div class="mui-input-row flex-box">
+								<label>提款金额</label>
+								<input type="text" class="mui-input-clear flex-1" placeholder="">
+							</div>
+						</form>
+						<div class="btn-container">
+							<button id="commit" type="button" class="mui-btn mui-btn-block">提 交</button>
+						</div>
+						<div class="bank-card-link mui-text-center">
+							<a href="add-bank-card.html" class="">添加绑定银行卡</a>
+							<span>|</span>
+							<a href="bank-card-manager.html" class="">银行卡管理</a>
+						</div>
+					</div>
+					<div id="item4mobile" class="mui-slider-item mui-control-content">
+						<div class="date-picker flex-box">
+							<a data-options='{"type":"date"}' class="mdtpicker flex-1">
+								<img src="../images/date.png" class="date" /><span class="text">2016/06/21</span><span class="mui-icon mui-icon-compose"></span>
+							</a>
+							<a data-options='{"type":"date"}' class="dtpicker flex-1">
+								<img src="../images/date.png" / class="date"><span class="text">2016/06/21</span><span class="mui-icon mui-icon-compose"></span>
+							</a>
+							<a href="#">
+								全部
+							</a>
+						</div>
+						<div id="emptyTradeList">
+							<img src="../images/empty-trade.png" />
+							<div class="tips">
+								<img src="../images/refresh.png" />无交易记录，点击重试
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
 	<script src="../js/mui.min.js"></script>
+	<script src="../js/mui.picker.min.js"></script>
 	<script>
-		mui.init({
-			swipeBack:true //启用右滑关闭功能
-		});
+		(function($, win, doc) {
+			$.init();
+
+			var pageTitle = $('#pageTitle')[0];
+			$('#sliderSegmentedControl').on('tap', 'a', function(e) {
+				pageTitle.innerText = '资金管理-' + this.innerText;
+			});
+
+			var headerH = $('header')[0].clientHeight,
+				sliderControl = $('#sliderSegmentedControl')[0].clientHeight,
+				sliderBarH = $('#sliderProgressBar')[0].clientHeight,
+				scrollContainerH = win.innerHeight - headerH - sliderControl - sliderBarH + 3;
+			$('.mui-control-content').each(function() {
+				this.style.height = scrollContainerH + 'px';
+			});
+
+			$('.date-picker').on('tap', 'a', function(e) {
+				var optionsJson = this.getAttribute('data-options') || '{}';
+				var options = JSON.parse(optionsJson);
+				var id = this.getAttribute('id');
+				var that = this;
+
+				if ('#' === this.getAttribute('href')) {
+					return;
+				}
+				/*
+				 * 首次显示时实例化组件
+				 * 示例为了简洁，将 options 放在了按钮的 dom 上
+				 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+				 */
+				var picker = new $.DtPicker(options);
+				picker.show(function(rs) {
+					/*
+					 * rs.value 拼合后的 value
+					 * rs.text 拼合后的 text
+					 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+					 * rs.m 月，用法同年
+					 * rs.d 日，用法同年
+					 * rs.h 时，用法同年
+					 * rs.i 分（minutes 的第二个字母），用法同年
+					 */
+					that.querySelector('.text').innerText = rs.y.text + '/' + rs.m.text + '/' + rs.d.text;
+					// that.innerHTML = '<img src="../images/date.png" class="date"/>' + rs.y.text + '/' + rs.m.text + '/' + rs.d.text + '<span class="mui-icon mui-icon-compose"></span>';
+					options["value"] = rs.value;
+					that.setAttribute('data-options', JSON.stringify(options));
+					/*
+					 * 返回 false 可以阻止选择框的关闭
+					 * return false;
+					 */
+					/*
+					 * 释放组件资源，释放后将将不能再操作组件
+					 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+					 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+					 * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+					 */
+					picker.dispose();
+				});
+			});
+
+			var remittanceBankPicker = new $.PopPicker();
+			remittanceBankPicker.setData([{
+				value: 'msyh',
+				text: '民生银行'
+			}, {
+				value: 'zgyh',
+				text: '中国银行'
+			}, {
+				value: 'gsyh',
+				text: '工商银行'
+			}, {
+				value: 'nyyh',
+				text: '农业银行'
+			}, {
+				value: 'jsyh',
+				text: '建设银行'
+			}, {
+				value: 'yzyh',
+				text: '邮政银行'
+			}, {
+				value: 'xyyh',
+				text: '兴业银行'
+			}]);
+			var remittanceBank = doc.getElementById('remittanceBank'),
+				remittanceBankText = doc.getElementById('remittanceBankText');
+			remittanceBank.addEventListener('tap', function(event) {
+				remittanceBankPicker.show(function(items) {
+					remittanceBankText.innerText = items[0].text;
+					//返回 false 可以阻止选择框的关闭
+					//return false;
+				});
+			}, false);
+
+			var remittanceMethodPicker = new $.PopPicker();
+			remittanceMethodPicker.setData([{
+				value: 'wsyh',
+				text: '网上银行'
+			}, {
+				value: 'zfb',
+				text: '支付宝'
+			}, {
+				value: 'zjzz',
+				text: '直接转账'
+			}]);
+			var remittanceMethod = doc.getElementById('remittanceMethod'),
+				remittanceMethodText = doc.getElementById('remittanceMethodText');
+			remittanceMethod.addEventListener('tap', function(event) {
+				remittanceMethodPicker.show(function(items) {
+					remittanceMethodText.innerText = items[0].text;
+					//返回 false 可以阻止选择框的关闭
+					//return false;
+				});
+			}, false);
+		})(mui, window, document);
 	</script>
+
 </html>

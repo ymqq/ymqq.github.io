@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/mui.picker.css" rel="stylesheet" />
+		<link href="../css/mui.poppicker.css" rel="stylesheet" />
+		<link href="../css/common.css" rel="stylesheet" />
+		<style>
+			#showContainer,
+			#editContainer {
+				margin-top: 10px;
+			}
+			
+			#editContainer {
+				display: none;
+			}
+			
+			.mui-input-group .mui-input-row label {
+				width: 95px;
+			}
+			
+			.tips-container {
+				padding: 0 37px;
+				color: #888888;
+				font-size: 12px;
+			}
+			
+			.tips-container .mui-icon {
+				font-size: 14px;
+			}
+			
+			.mui-pciker-list li {
+				font-size: 12px;
+				font-family: "黑体", "微软雅黑", "./fonts/Android-FZLTHJW.TTF";
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">收货地址</h1>
+		</header>
+		<div class="mui-content">
+			<div id="showContainer">
+				<form class="mui-input-group">
+					<div class="mui-input-row flex-box">
+						<label>地区</label>
+						<span class="flex-1">北京市</span>
+					</div>
+					<div class="mui-input-row flex-box">
+						<label>收货地址</label>
+						<span class="flex-1">东城区华门街道356号</span>
+					</div>
+					<div class="mui-input-row flex-box">
+						<label>收获人</label>
+						<span class="flex-1">王艳君</span>
+					</div>
+					<div class="mui-input-row flex-box">
+						<label>收货手机</label>
+						<span class="flex-1">18900098765</span>
+					</div>
+				</form>
+				<div class="btn-container">
+					<button id="modify" type="button" class="mui-btn mui-btn-block mui-btn-danger">修 改</button>
+				</div>
+			</div>
+			<div id="editContainer">
+				<form class="mui-input-group">
+					<div class="mui-input-row flex-box">
+						<label>收货人</label>
+						<input type="text" class="mui-input-clear flex-1" placeholder="">
+					</div>
+					<div class="mui-input-row flex-box">
+						<label>收货手机</label>
+						<input type="text" class="mui-input-clear flex-1" placeholder="">
+					</div>
+					<div class="mui-input-row flex-box">
+						<label>所在地区</label>
+						<button id='showCityPicker3' class="mui-btn flex-1" type='button'>点击选择</button>
+					</div>
+					<div class="mui-input-row flex-box">
+						<label>详细地址</label>
+						<input type="text" class="mui-input-clear flex-1" placeholder="">
+					</div>
+				</form>
+				<div class="btn-container">
+					<button id="save" type="button" class="mui-btn mui-btn-block mui-btn-danger">保 存</button>
+				</div>
+
+				<div class="tips-container">
+					<span class="mui-icon mui-icon-info"></span> 填写真实资料，逢年过节时，我们可能给忠实的会员派送小礼物哦！
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.picker.js"></script>
+		<script src="../js/mui.poppicker.js"></script>
+		<script src="../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			(function($, doc) {
+				$.init({
+					statusBarBackground: '#ff4400',
+				});
+				$.ready(function() {
+					// 3级联示例
+					var cityPicker3 = new $.PopPicker({
+						layer: 3
+					});
+					cityPicker3.setData(cityData3);
+					var showCityPickerButton = doc.getElementById('showCityPicker3');
+					showCityPickerButton.addEventListener('tap', function(event) {
+						cityPicker3.show(function(items) {
+							showCityPickerButton.innerText = (items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text;
+						});
+					}, false);
+				});
+
+				var showContainer = doc.querySelector('#showContainer'),
+					editContainer = doc.querySelector('#editContainer');
+				$('.btn-container').on('tap', '#modify', function() {
+					showContainer.style.display = 'none';
+					editContainer.style.display = 'block';
+				});
+				$('.btn-container').on('tap', '#save', function() {
+					showContainer.style.display = 'block';
+					editContainer.style.display = 'none';
+				});
+			})(mui, document);
+		</script>
+	</body>
+
+</html>

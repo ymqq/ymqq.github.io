@@ -30,6 +30,10 @@
 			#headerLeft {
 				display: inline-block;
 			}
+			#headerLeft img {
+				margin-top: 8px;
+				height: 28px;
+			}
 			
 			#headerRight {
 				display: inline-block;
@@ -37,6 +41,9 @@
 				padding: 12px 0;
 				margin-right: 40px;
 				font-size: 16px;
+			}
+			#login, #register {
+				cursor: pointer;	
 			}
 			
 			.header .title {
@@ -260,6 +267,44 @@
 			footer a {
 				color: #888888;
 			}
+			
+			.client-tips {
+				height: 75px;
+				padding: 12.5px 0 12.5px 20px;
+				background: #000000;
+				opacity: 0.84;
+			}
+			.client-tips img.mui-pull-left {
+				width: 50px;
+				height: 50px;
+				margin-right: 12px;
+				background-color: #CC3600;
+				border-radius: 4px;
+			}
+			.client-tips img.mui-pull-right {
+				width: 36px;
+				height: 36px;
+				padding: 6px;
+				margin-top: -12px;
+			}
+			.client-tips .mui-btn-danger {
+				position: absolute;
+				top: 22px;
+				right: 42.5px;
+				background-color: #CC3600;
+				border-radius: 4px;
+			}
+			.client-tips .mui-media-body {
+				display: inline-block;
+				line-height: 1.0;
+				margin-top: 3px;
+				font-size: 15px;
+				color: #ffffff;
+			}
+			.client-tips .mui-media-body span {
+				font-size: 10px;
+				color: #888888;
+			}
 		</style>
 	</head>
 
@@ -267,12 +312,10 @@
 		<header class="mui-bar mui-bar-nav header">
 			<ul class="mui-table-view mui-table-view-chevron">
 				<li class="mui-table-view-cell mui-media">
-					<a class="mui-navigate-right">
-						<img class="mui-media-object mui-pull-left" src="images/index-logo.png">
+					<a>
 						<div class="mui-media-body">
 							<div id="headerLeft">
-								<span class="title">LEYING</span>
-								<p>&nbsp;&nbsp;乐赢&nbsp;</p>
+								<img src="images/home-logo.png" />
 							</div>
 							<div id="headerRight">
 								<span id="login">&nbsp;登陆 </span>
@@ -302,6 +345,17 @@
 				<span class="mui-tab-label">分享链接</span>
 			</a>
 		</nav>
+		<div class="mui-bar mui-bar-footer client-tips">
+			<a href="javascript:;">
+				<img class="mui-media-object mui-pull-left" src="images/app-logo.png">
+				<div class="mui-media-body">
+					乐赢移动客户端<br/>
+					<span>全球首家提供移动支付功能APP</span><br/><span>内嵌网页版所有游戏</span>
+				</div>
+				<img id="clientTipsClose" class="mui-media-object mui-pull-right" src="images/close.png">
+				<button type="button" class="mui-btn mui-btn-danger mui-pull-right">立即体验</button>
+			</a>
+		</div>
 		<div class="mui-content">
 			<div id="slider" class="mui-slider">
 				<div class="mui-slider-group mui-slider-loop">
@@ -467,6 +521,10 @@
 					url: targetTab
 				});
 			});
+			
+			mui('.client-tips').on('tap', '#clientTipsClose', function(e) {
+				document.querySelector('.client-tips').className += ' mui-hidden';
+			});
 
 			mui('footer').on('tap', 'a', function(e) {
 				var targetTab = this.getAttribute('href');
@@ -474,6 +532,22 @@
 				mui.openWindow({
 					id: targetTab,
 					url: targetTab
+				});
+			});
+
+			mui('header').on('tap', '#login', function(e) {
+				// 使用openWindow方式可以等待页面load成功后，再进行跳转，避免白屏
+				mui.openWindow({
+					id: 'login.html',
+					url: './ui/login.html'
+				});
+			});
+
+			mui('header').on('tap', '#register', function(e) {
+				// 使用openWindow方式可以等待页面load成功后，再进行跳转，避免白屏
+				mui.openWindow({
+					id: 'register.html',
+					url: './ui/register.html'
 				});
 			});
 		</script>

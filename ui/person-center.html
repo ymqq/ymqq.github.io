@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/common.css" />
+		<style>
+			.mui-input-group .mui-input-row span {
+				color: #333333;
+				text-align: right;
+			}
+			.mui-input-group .mui-input-row span a {
+				color: #CC3600;
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav"></a>
+			<h1 class="mui-title">个人中心</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group">
+				<div class="mui-input-row flex-box">
+					<label>用户名</label>
+					<span class="flex-1">Dick8979</span>
+				</div>
+				<div class="mui-input-row flex-box">
+					<label>密码</label>
+					<span class="flex-1"><a href="#">修改密码</a></span>
+				</div>
+				<div class="mui-input-row flex-box">
+					<label>上次登陆</label>
+					<span class="flex-1">47分钟前</span>
+				</div>
+				<div class="mui-input-row flex-box">
+					<label>真实姓名</label>
+					<span class="flex-1"><a href="#">尚未绑定，立即填写</a></span>
+				</div>
+				<div class="mui-input-row flex-box">
+					<label>性别</label>
+					<span class="flex-1"></span>
+				</div>
+				<div class="mui-input-row flex-box">
+					<label>出生日期</label>
+					<span class="flex-1"></span>
+				</div>
+				<div class="mui-input-row flex-box">
+					<label>手机号码</label>
+					<span class="flex-1"><a href="#">尚未绑定手机，立即绑定</a></span>
+				</div>
+				<div class="mui-input-row flex-box">
+					<label>邮箱</label>
+					<span class="flex-1"><a href="#">尚未绑定邮箱，立即绑定</a></span>
+				</div>
+				<div class="mui-input-row flex-box">
+					<label>收货地址</label>
+					<span class="flex-1"><a href="#">尚未填写，立即填写</a></span>
+				</div>
+			</form>
+			
+			<div class="btn-container">
+				<button id="modify" type="button" class="mui-btn mui-btn-block">修 改</button>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

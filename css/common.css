@@ -1,0 +1,119 @@
+header.mui-bar-nav {
+	background-color: #ff4400;
+}
+
+header.mui-bar-nav a,
+header.mui-bar-nav h1 {
+	color: #FFFFFF;
+	font-size: 18px;
+}
+
+html,
+body,
+.mui-content {
+	background-color: #E3E4E6;
+	height: 100%;
+	font-family: "黑体", "微软雅黑", "./fonts/Android-FZLTHJW.TTF";
+}
+
+.flex-box {
+	display: flex;
+	display: -webkit-flex;
+}
+
+.flex-1 {
+	flex: 1;
+	-webkit-flex: 1;
+}
+
+.mui-input-group {
+	padding: 12px;
+}
+
+.mui-input-group .mui-input-row:after {
+	left: 0;
+}
+
+.mui-input-group .mui-input-row {
+	min-height: 50px;
+	padding: 6px;
+}
+
+.mui-input-group .mui-input-row label {
+	text-align: right;
+	font-size: 15px;
+	font-family: "黑体", "微软雅黑", "./fonts/Android-FZLTHJW.TTF";
+	padding: 11px 10px 11px 4px;
+	color: #888888;
+}
+
+.mui-input-group .mui-input-row input {
+	height: 36px;
+	border: 1px solid #C8C7CC;
+	border-radius: 6px;
+	padding: 6px;
+	font-size: 15px;
+	font-family: "黑体", "微软雅黑", "./fonts/Android-FZLTHJW.TTF";
+	color: #ff4400;
+}
+
+.mui-input-group .mui-input-row span {
+	font-size: 15px;
+	line-height: 36px;
+}
+
+.mui-input-group .mui-input-row.mui-checkbox label {
+	text-align: left;
+	margin-left: 36px;
+}
+
+.mui-input-group .mui-input-row.mui-checkbox input {
+	border: 0;
+	text-align: right;
+}
+
+.mui-checkbox input[type=checkbox]:before {
+	font-size: 22px;
+	line-height: 30px;
+}
+
+.mui-input-row .mui-input-clear~.mui-icon-clear {
+	/*top: 14px;*/
+	top: 6px;
+}
+
+.mui-input-group .mui-input-row .mui-btn {
+	height: 36px;
+	width: 70%;
+	border-radius: 6px;
+	padding: 6px;
+	font-size: 15px;
+	font-family: "黑体", "微软雅黑", "./fonts/Android-FZLTHJW.TTF";
+}
+
+.mui-input-group .mui-input-row:last-child:after {
+	height: 0;
+}
+
+.mui-input-group .mui-input-row textarea {
+	border: 1px solid #C8C7CC;
+	border-radius: 6px;
+	padding: 6px;
+	font-size: 15px;
+	font-family: "黑体", "微软雅黑", "./fonts/Android-FZLTHJW.TTF";
+	color: #ff4400;
+}
+
+.btn-container {
+	padding: 20px 12px 50px 12px;
+}
+
+.btn-container .mui-btn {
+	background-color: #cc3600;
+	height: 45px;
+	padding: 6px;
+	font-size: 18px;
+	font-weight: normal;
+	font-family: "黑体", "微软雅黑", "./fonts/Android-FZLTHJW.TTF";
+	color: #FFFFFF;
+}
