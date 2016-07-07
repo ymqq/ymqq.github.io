@@ -16,6 +16,15 @@
 				color: #CC3600;
 				text-decoration: underline;
 			}
+			
+			.mui-popover {
+				position: fixed;
+				height: 130px;
+				width: 300px;
+				top: 0;
+				left: 0;
+				margin-left: -20px;
+			}
 		</style>
 	</head>
 
@@ -32,7 +41,7 @@
 				</div>
 				<div class="mui-input-row flex-box">
 					<label>密码</label>
-					<span class="flex-1"><a href="#">修改密码</a></span>
+					<span class="flex-1"><a href="#middlePopover">修改密码</a></span>
 				</div>
 				<div class="mui-input-row flex-box">
 					<label>上次登陆</label>
@@ -68,9 +77,38 @@
 				<button id="modify" type="button" class="mui-btn mui-btn-block">修 改</button>
 			</div>
 		</div>
+		<div id="middlePopover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell"><a href="#">Item1</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">Item2</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">Item3</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">Item4</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">Item5</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">Item6</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">Item7</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">Item8</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">Item9</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">Item10</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
 		</script>
 	</body>
 

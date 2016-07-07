@@ -64,11 +64,11 @@
 			<form class="mui-input-group">
 				<div class="mui-input-row flex-box">
 					<label>用户名</label>
-					<input type="text" class="mui-input-clear flex-1" placeholder="">
+					<input id="username" type="text" class="mui-input-clear flex-1" placeholder="">
 				</div>
 				<div class="mui-input-row flex-box">
 					<label>密码</label>
-					<input type="password" class="mui-input-clear flex-1" placeholder="">
+					<input id="password" type="password" class="mui-input-clear flex-1" placeholder="">
 				</div>
 				<div class="mui-input-row mui-checkbox mui-left flex-box">
 					<label for="rememberPwd" class="flex-1">记住密码</label>
@@ -87,8 +87,20 @@
 		</div>
 
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/utils.js" ></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			
+			document.querySelector('#login').addEventListener('tap', function() {
+				var username = document.querySelector('#username'),
+					password = document.querySelector('#password');
+					
+				utils.sesStorage.set('username', username.value);
+				mui.openWindow({
+					id: 'home',
+					url: '../index.html'
+				});
+			}, false);
 		</script>
 	</body>
 

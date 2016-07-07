@@ -9,6 +9,7 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" href="css/common.css" />
 		<style>
 			html,
 			body {
@@ -18,45 +19,33 @@
 			
 			.header {
 				height: 50px;
-				padding: 0;
+				line-height: 50px;
+				padding: 0 12px;
 				color: #FFFFFF;
-			}
-			
-			.header .mui-table-view-cell {
 				background-color: #ff4400;
-				padding: 7px 15px;
-			}
-			
-			#headerLeft {
-				display: inline-block;
-			}
-			#headerLeft img {
-				margin-top: 8px;
-				height: 28px;
-			}
-			
-			#headerRight {
-				display: inline-block;
-				float: right;
-				padding: 12px 0;
-				margin-right: 40px;
 				font-size: 16px;
 			}
-			#login, #register {
-				cursor: pointer;	
+			.header a {
+				padding: 14px 0;
+				font-size: 16px !important;
 			}
-			
-			.header .title {
-				font-size: 16px;
+			.header-logo {
+				margin: auto 0;
+				height: 32px;
 			}
-			
-			.header p {
-				color: #ffffff;
-				font-size: 12px;
+			.header-login {
+				display: block;
+				text-align: right;
 			}
-			
-			.header .divider {
-				color: #AF3600;
+			.header-user {
+				display: none;
+				text-align: right;
+			}
+			.person-center img {
+				margin-bottom: -9px;
+				margin-left: 4px;
+				height: 32px;
+				width: 32px;
 			}
 			
 			.mui-bar-tab .mui-tab-item .mui-icon {
@@ -262,6 +251,7 @@
 				color: #888888;
 				font-size: 10px;
 				text-align: center;
+				margin-bottom: 52px;
 			}
 			
 			footer a {
@@ -305,34 +295,72 @@
 				font-size: 10px;
 				color: #888888;
 			}
+			
+			.marquee-wrapper {
+				background-color: #E3E4E6;
+				position: relative;
+				height: 36px;
+				line-height: 36px;
+				padding: 0 12px;
+			}
+			.marquee-wrapper img {
+				width: auto;
+				height: 100%;
+			}
+			.marquee-wrapper marquee {
+				position: absolute;
+				height: 36px;
+				width: 88%;
+				top: 0;
+				left: 40px;
+				right: 2px;
+				font-size: 14px;
+				color: #555555;
+			}
+			
+			#topPopover {
+				position: fixed;
+				width: 160px;
+				top: 0;
+				right: 6px;
+				margin-top: -9px;
+				margin-left: -14px;
+			}
+			.mui-popover {
+				height: 80px;
+			}
+			#topPopover .mui-table-view-cell {
+				font-size: 15px;
+				color: #333333;
+				text-align: center;
+			}
+			#topPopover .mui-table-view-cell:after {
+				left: 0;
+			}
 		</style>
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav header">
-			<ul class="mui-table-view mui-table-view-chevron">
-				<li class="mui-table-view-cell mui-media">
-					<a>
-						<div class="mui-media-body">
-							<div id="headerLeft">
-								<img src="images/home-logo.png" />
-							</div>
-							<div id="headerRight">
-								<span id="login">&nbsp;登陆 </span>
-								<span class="divider">|</span>
-								<span id="register"> 注册&nbsp;</span>
-							</div>
-						</div>
-					</a>
-				</li>
-			</ul>
+		<header class="mui-bar mui-bar-nav header flex-box">
+			<img class="header-logo" src="images/home-logo.png" />
+			<div class="header-login flex-1">
+				<a href="./ui/login.html">&nbsp;登陆 </a>
+				<span class="divider">|</span>
+				<a href="./ui/login.html"> 注册&nbsp;</a>
+			</div>
+			<div class="header-user flex-1">
+				<span id="username">用户名</span>
+				<a class="person-center" href="#topPopover">
+					<img src="images/avatar.png" />
+				</a>
+			</div>
 		</header>
 		<nav class="mui-bar mui-bar-tab">
-			<a id="defaultTab" class="mui-tab-item" href="ui/fund-management.html">
+			<a class="mui-tab-item" href="./ui/fund-management.html">
 				<span class="mui-icon fund-management"></span>
 				<span class="mui-tab-label">资金管理</span>
 			</a>
-			<a class="mui-tab-item" href="ui/site-message.html">
+			<a class="mui-tab-item" href="./ui/site-message.html">
 				<span class="mui-icon site-message"><span class="mui-badge">9</span></span>
 				<span class="mui-tab-label">站内信</span>
 			</a>
@@ -340,7 +368,7 @@
 				<span class="mui-icon online-service"></span>
 				<span class="mui-tab-label">在线客服</span>
 			</a>
-			<a class="mui-tab-item" href="ui/share-link.html">
+			<a class="mui-tab-item" href="./ui/share-link.html">
 				<span class="mui-icon share-link"></span>
 				<span class="mui-tab-label">分享链接</span>
 			</a>
@@ -387,7 +415,17 @@
 					<div class="mui-indicator"></div>
 				</div>
 			</div>
-
+			
+			<div class="marquee-wrapper flex-box">
+				<img src="images/sound.png" />
+				<a class="flex-1" href="ui/notice.html">
+					<marquee direction="left" behavior="scroll" scrollamount="3" scrolldelay="0" loop="-1">
+						APP摇起来吧，Android下载地址: i.s.uedapp.net
+					</marquee>
+				</a>
+			</div>
+			
+			
 			<div class="game-platform-title">
 				<span>游戏平台</span>
 				<span class="divider"></span>
@@ -487,25 +525,55 @@
 			</ul>
 
 			<footer>
-				<a href="ui/about.html">关于我们</a>
+				<a href="./ui/about.html">关于我们</a>
 				<span>|</span>
-				<a href="ui/join.html">代理加盟</a>
+				<a href="./ui/join.html">代理加盟</a>
 				<span>|</span>
-				<a href="ui/question.html">常见问题</a>
+				<a href="./ui/question.html">常见问题</a>
 				<span>|</span>
-				<a href="ui/contact-us.html">联系我们</a>
+				<a href="./ui/contact-us.html">联系我们</a>
 				<span>|</span>
-				<a href="ui/service-provision.html">服务条款</a>
+				<a href="./ui/service-provision.html">服务条款</a>
 				<span>|</span>
-				<a href="ui/privacy-policy.html">隐私政策</a>
+				<a href="./ui/privacy-policy.html">隐私政策</a>
 				<span>|</span>
-				<a href="ui/disclaimer.html">免责声明</a>
+				<a href="./ui/disclaimer.html">免责声明</a>
 			</footer>
 		</div>
+		
+		<!--右上角弹出菜单-->
+		<div id="topPopover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="ui/person-center.html">个人中心</a>
+				</li>
+				<li id="logout" class="mui-table-view-cell">注 销</li>
+			</ul>
+		</div>
 		<script src="js/mui.min.js"></script>
+		<script src="js/utils.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			// mui初始化
 			mui.init();
+			
+			var $loginWrapper = document.querySelector('.header-login'),
+				$userWrapper = document.querySelector('.header-user'),
+				$username = document.querySelector('#username'),
+				username = utils.sesStorage.get('username');
+				
+			if(!!username) {
+				$loginWrapper.style.display = 'none';
+				$userWrapper.style.display = 'block';
+				$username.innerText = username;
+			}
+			
+			document.querySelector('#logout').addEventListener('tap', function() {
+				$loginWrapper.style.display = 'block';
+				$userWrapper.style.display = 'none';
+				utils.sesStorage.remove('username');
+				mui('#topPopover').popover('hide');
+			}, false);
 
 			// 设置定时轮播图片
 			mui('#slider').slider({
@@ -524,31 +592,6 @@
 			
 			mui('.client-tips').on('tap', '#clientTipsClose', function(e) {
 				document.querySelector('.client-tips').className += ' mui-hidden';
-			});
-
-			mui('footer').on('tap', 'a', function(e) {
-				var targetTab = this.getAttribute('href');
-				// 使用openWindow方式可以等待页面load成功后，再进行跳转，避免白屏
-				mui.openWindow({
-					id: targetTab,
-					url: targetTab
-				});
-			});
-
-			mui('header').on('tap', '#login', function(e) {
-				// 使用openWindow方式可以等待页面load成功后，再进行跳转，避免白屏
-				mui.openWindow({
-					id: 'login.html',
-					url: './ui/login.html'
-				});
-			});
-
-			mui('header').on('tap', '#register', function(e) {
-				// 使用openWindow方式可以等待页面load成功后，再进行跳转，避免白屏
-				mui.openWindow({
-					id: 'register.html',
-					url: './ui/register.html'
-				});
 			});
 		</script>
 	</body>
