@@ -228,8 +228,33 @@
 				font-size: 14px;
 			}
 			
-			#online {
+			#online, #offline {
 				display: none;
+			}
+			.tab-bar-container {
+				padding: 7px 20px !important;
+				background-color: #F7F7F7 !important;
+			}
+			#item2mobile .mui-segmented-control {
+				height: 35px;
+				border: 1px solid #FFFFFF;
+				color: #FFFFFF;
+				border-radius: 5px;
+				font-size: 16px;
+			}
+			
+			#item2mobile .mui-segmented-control .mui-control-item {
+				color: #FF4400;
+				border-left: 1px solid #F7F7F7;
+				background-color: #FFFFFF;
+			}
+			
+			#item2mobile .mui-segmented-control .mui-control-item.mui-active {
+				background-color: #FF4400;
+				color: #FFFFFF;
+			}
+			.mui-scroll {
+				padding: 12px;
 			}
 			
 			.select-payee {
@@ -394,8 +419,13 @@
 						</div>
 					</div>
 					<div id="item2mobile" class="mui-slider-item mui-control-content">
-						<div id="online">
-							<div class="status">------ 在线状态 ------</div>
+						<div class="tab-bar-container">
+							<div id="segmentedControl" class="mui-segmented-control">
+								<a class="mui-control-item mui-active" href="#item1">离线</a>
+								<a class="mui-control-item" href="#item2">在线</a>
+							</div>
+						</div>
+						<div id="item1" class="mui-control-content mui-active">
 							<div class="select-payee flex-box">
 								<img class="bank-icon" src="../images/ico-bank.png" />
 								<div class="flex-1 bank-name">
@@ -424,41 +454,47 @@
 								</div>
 							</form>
 						</div>
-						<div id="offline">
-							<div class="status">------ 离线状态 ------</div>
-							<div class="bank-address flex-box">
-								<label>收款地址</label>
-								<span class="flex-1">广东省广州市天河区分开多久ad</span>
-								<img class="bank-info-icon" src="../images/info.png" />
+						<div id="item2" class="mui-control-content">
+							<div id="scroll" class="mui-scroll-wrapper">
+								<div class="mui-scroll">
+									<div class="bank-address flex-box">
+										<label>收款地址</label>
+										<span class="flex-1">广东省广州市天河区分开多久ad</span>
+										<img class="bank-info-icon" src="../images/info.png" />
+									</div>
+									<form class="mui-input-group payee-card-info">
+										<div class="mui-input-row flex-box">
+											<label>汇款人</label>
+											<input type="text" class="mui-input-clear flex-1" placeholder="">
+										</div>
+										<div class="mui-input-row flex-box">
+											<label>汇款帐号</label>
+											<input type="text" class="mui-input-clear flex-1" placeholder="">
+										</div>
+										<div class="mui-input-row flex-box">
+											<label>汇款金额</label>
+											<input type="text" class="mui-input-clear flex-1" placeholder="">
+										</div>
+										<div class="mui-input-row flex-box">
+											<label>汇款银行</label>
+											<button id="remittanceBank" type="button" class="spinner mui-btn flex-1">
+												<span id="remittanceBankText">点击选择</span>
+												<span class="mui-icon mui-icon-arrowdown mui-pull-right"></span>
+											</button>
+										</div>
+										<div class="mui-input-row flex-box">
+											<label>汇款方式</label>
+											<button id="remittanceMethod" type="button" class="mui-btn flex-1 spinner">
+												<span id="remittanceMethodText">点击选择</span>
+												<span class="mui-icon mui-icon-arrowdown mui-pull-right"></span>
+											</button>
+										</div>
+									</form>
+									<div class="btn-container">
+										<button id="confirm" type="button" class="mui-btn mui-btn-block">发 送</button>
+									</div>
+								</div>
 							</div>
-							<form class="mui-input-group payee-card-info">
-								<div class="mui-input-row flex-box">
-									<label>汇款人</label>
-									<input type="text" class="mui-input-clear flex-1" placeholder="">
-								</div>
-								<div class="mui-input-row flex-box">
-									<label>汇款帐号</label>
-									<input type="text" class="mui-input-clear flex-1" placeholder="">
-								</div>
-								<div class="mui-input-row flex-box">
-									<label>汇款金额</label>
-									<input type="text" class="mui-input-clear flex-1" placeholder="">
-								</div>
-								<div class="mui-input-row flex-box">
-									<label>汇款银行</label>
-									<button id="remittanceBank" type="button" class="spinner mui-btn flex-1">
-										<span id="remittanceBankText">点击选择</span>
-										<span class="mui-icon mui-icon-arrowdown mui-pull-right"></span>
-									</button>
-								</div>
-								<div class="mui-input-row flex-box">
-									<label>汇款方式</label>
-									<button id="remittanceMethod" type="button" class="mui-btn flex-1 spinner">
-										<span id="remittanceMethodText">点击选择</span>
-										<span class="mui-icon mui-icon-arrowdown mui-pull-right"></span>
-									</button>
-								</div>
-							</form>
 						</div>
 					</div>
 					<div id="item3mobile" class="mui-slider-item mui-control-content">
@@ -515,8 +551,16 @@
 				sliderControl = $('#sliderSegmentedControl')[0].clientHeight,
 				sliderBarH = $('#sliderProgressBar')[0].clientHeight,
 				scrollContainerH = win.innerHeight - headerH - sliderControl - sliderBarH + 3;
-			$('.mui-control-content').each(function() {
+			$('.mui-slider-group>.mui-control-content').each(function() {
 				this.style.height = scrollContainerH + 'px';
+			});
+			var tabbarH = $('.tab-bar-container')[0].clientHeight;
+			$('#item2mobile .mui-control-content').each(function() {
+				this.style.height = (scrollContainerH - tabbarH) + 'px';
+			});
+			
+			$('#scroll').scroll({
+				indicators: true //是否显示滚动条
 			});
 
 			$('.date-picker').on('tap', 'a', function(e) {
