@@ -367,8 +367,8 @@
 			<div id="slider" class="mui-slider">
 				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
 					<a class="mui-control-item mui-active" href="#item1mobile">转账</a>
-					<a class="mui-control-item" href="#item2mobile">转入</a>
-					<a class="mui-control-item" href="#item3mobile">转出</a>
+					<a class="mui-control-item" href="#item2mobile">存款</a>
+					<a class="mui-control-item" href="#item3mobile">提款</a>
 					<a class="mui-control-item" href="#item4mobile">记录明细</a>
 				</div>
 				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-3"></div>
@@ -388,10 +388,10 @@
 									</div>
 								</li>
 								<div class="operation">
-									<a class="mui-pull-left">
+									<a class="mui-pull-left item1-turn-in">
 										<img src="../images/turn-in.png" />转入
 									</a>
-									<a>
+									<a class="item1-turn-out">
 										<img src="../images/turn-out.png" />转出
 									</a>
 								</div>
@@ -408,10 +408,10 @@
 									</div>
 								</li>
 								<div class="operation">
-									<a class="mui-pull-left">
+									<a class="mui-pull-left item1-turn-in">
 										<img src="../images/turn-in.png" />转入
 									</a>
-									<a>
+									<a class="item1-turn-out">
 										<img src="../images/turn-out.png" />转出
 									</a>
 								</div>
@@ -535,6 +535,7 @@
 				</div>
 			</div>
 		</div>
+		
 	</body>
 	<script src="../js/mui.min.js"></script>
 	<script src="../js/mui.picker.min.js"></script>
@@ -561,6 +562,28 @@
 			
 			$('#scroll').scroll({
 				indicators: true //是否显示滚动条
+			});
+			
+			$('.item1-turn-in').each(function() {
+				this.addEventListener('tap', function() {
+					$.prompt('单位：元', '0.00', '存款', ['取消', '确定'], function(result) {
+						if(1 === result.index) {
+							var isNum = /^(([1-9][0-9]*)|(([0]\.\d{1,2}|[1-9][0-9]*\.\d{1,2})))$/;
+							$.toast(isNum.test(result.value) ? '存款：' + result.value : '金额格式错误');
+						}
+					}, 'div');
+				}, false);
+			});
+			
+			$('.item1-turn-out').each(function() {
+				this.addEventListener('tap', function() {
+					$.prompt('单位：元', '0.00', '提款', ['取消', '确定'], function(result) {
+						if(1 === result.index) {
+							var isNum = /^(([1-9][0-9]*)|(([0]\.\d{1,2}|[1-9][0-9]*\.\d{1,2})))$/;
+							$.toast(isNum.test(result.value) ? '提款：' + result.value : '金额格式错误');
+						}
+					}, 'div');
+				}, false);
 			});
 
 			$('.date-picker').on('tap', 'a', function(e) {

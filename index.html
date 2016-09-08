@@ -337,6 +337,10 @@
 			#topPopover .mui-table-view-cell:after {
 				left: 0;
 			}
+			
+			#sportsPopover .mui-popover-arrow {
+				margin-top: 24px;
+			}
 		</style>
 	</head>
 
@@ -364,13 +368,13 @@
 				<span class="mui-icon site-message"><span class="mui-badge">9</span></span>
 				<span class="mui-tab-label">站内信</span>
 			</a>
+			<a class="mui-tab-item" href="./ui/latest-concessions.html">
+				<span class="mui-icon share-link"></span>
+				<span class="mui-tab-label">最新优惠</span>
+			</a>
 			<a class="mui-tab-item" href="#">
 				<span class="mui-icon online-service"></span>
 				<span class="mui-tab-label">在线客服</span>
-			</a>
-			<a class="mui-tab-item" href="./ui/share-link.html">
-				<span class="mui-icon share-link"></span>
-				<span class="mui-tab-label">分享链接</span>
 			</a>
 		</nav>
 		<div class="mui-bar mui-bar-footer client-tips">
@@ -389,27 +393,39 @@
 				<div class="mui-slider-group mui-slider-loop">
 					<!--支持循环，需要重复图片节点-->
 					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="#"><img src="http://img5.3lian.com/gaoqing/02/28/29.jpg" /></a>
+						<a href="#"><img src="images/ad_7.png" /></a>
 					</div>
 					<div class="mui-slider-item">
-						<a href="#"><img src="http://pic.baike.soso.com/p/20131220/20131220051700-1668992300.jpg" /></a>
+						<a href="#"><img src="images/ad_1.png" /></a>
 					</div>
 					<div class="mui-slider-item">
-						<a href="#"><img src="http://img3.3lian.com/2014/c2/67/d/18.jpg" /></a>
+						<a href="#"><img src="images/ad_2.png" /></a>
 					</div>
 					<div class="mui-slider-item">
-						<a href="#"><img src="http://img1.sc115.com/uploads/sc/jpg/HD/3/2795.jpg" /></a>
+						<a href="#"><img src="images/ad_3.png" /></a>
 					</div>
 					<div class="mui-slider-item">
-						<a href="#"><img src="http://img5.3lian.com/gaoqing/02/28/29.jpg" /></a>
+						<a href="#"><img src="images/ad_4.png" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="images/ad_5.png" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="images/ad_6.png" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="images/ad_7.png" /></a>
 					</div>
 					<!--支持循环，需要重复图片节点-->
 					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="#"><img src="http://pic.baike.soso.com/p/20131220/20131220051700-1668992300.jpg" /></a>
+						<a href="#"><img src="images/ad_1.png" /></a>
 					</div>
 				</div>
 				<div class="mui-slider-indicator">
 					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
 					<div class="mui-indicator"></div>
 					<div class="mui-indicator"></div>
 					<div class="mui-indicator"></div>
@@ -432,7 +448,7 @@
 			</div>
 			<ul id="gridMenuContainer" class="mui-table-view mui-grid-view mui-grid-9">
 				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
-					<a href="#">
+					<a href="#sportsPopover">
 						<div class="grid-menu grid-menu-sports">
 							<img src="images/sports.png" />
 						</div>
@@ -549,6 +565,35 @@
 					<a href="ui/person-center.html">个人中心</a>
 				</li>
 				<li id="logout" class="mui-table-view-cell">注 销</li>
+			</ul>
+		</div>
+		
+		<div id="sportsPopover" class="mui-popover">
+			<ul id="gridMenuContainer" class="mui-table-view mui-grid-view mui-grid-9">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+					<a href="#">
+						<div class="grid-menu grid-menu-sports">
+							<img src="images/sports.png" />
+						</div>
+						<div class="mui-media-body">竞技体育</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+					<a href="#">
+						<div class="grid-menu grid-menu-happy-lottery">
+							<img src="images/happy-lottery.png" />
+						</div>
+						<div class="mui-media-body">足球体育</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+					<a href="#">
+						<div class="grid-menu grid-menu-gd-casino">
+							<img src="images/gd-casino.png" />
+						</div>
+						<div class="mui-media-body">电子体育</div>
+					</a>
+				</li>
 			</ul>
 		</div>
 		<script src="js/mui.min.js"></script>

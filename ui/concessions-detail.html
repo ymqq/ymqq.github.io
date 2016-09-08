@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/common.css">
+		<link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css" />
+		<style>
+			html,
+			body {
+				background-color: #FFFFFF;
+			}
+			
+			.mui-content {
+				padding: 66px 24px !important;
+				background: url(../images/concession_detail_bg.png);
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+			}
+			
+			#activityTitle {
+				margin-top: 6px;
+				font-size: 18px;
+				color: #333333;
+			}
+			#activityTime {
+				font-size: 12px;
+				color: #666666;
+			}
+			#activitySign {
+				width: 100px;
+				height: 45px;
+				line-height: 45px;
+				font-size: 16px;
+				text-align: center;
+				background-color: #CC3600;
+				border-radius: 20px;
+				color: #FFFFFF;
+			}
+			
+			.sign-block-wrapper {
+				margin: 40px 0 20px 0 !important;
+				border-top: 0px solid #eee !important; 
+			    border-left: 0px solid #eee !important; 
+			    background-color: rgba(0,0,0,0) !important;
+			}
+			.sign-block {
+				display: inline-block;
+				border-radius: 5px;
+				border: #CC3600 1px solid;
+				margin-bottom: 16px;
+			}
+			.sign-block-title {
+				text-align: center;
+				font-size: 10px;
+				line-height: 2;
+				color: #FFFFFF;
+				background-color: #CC3600;
+			}
+			.sign-block-content {
+				padding: 6px;
+				font-size: 10px;
+				line-height: 1.4;
+				background-color: #FFFFFF;
+				border-radius: 5px;
+			}
+			@media (min-width: 400px) {
+				.mui-col-sm-3 {
+				    width: 23%;
+				}
+			}
+			
+			@media (max-width: 400px) {
+				.mui-col-xs-4 {
+				    width: 31.33%;
+				}
+			}
+			
+			.activity-content-wrapper {
+				margin-bottom: 30px;
+			}
+			.activity-content-title {
+				font-size: 14px;
+				font-weight: 600;
+				color: #222222;
+			}
+			.activity-content-item {
+				font-size: 12px;
+				line-height: 1.5;
+				color: #222222;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="pageTitle" class="mui-title">优惠活动详情</h1>
+		</header>
+		<div class="mui-content">
+			<div class="flex-box activity-title-wrapper">
+				<div class="flex-1">
+					<div id="activityTitle">连续7天签到领取188元</div>
+					<div id="activityTime">今日日期：2016/08/19</div>
+				</div>
+				<div id="activitySign">今日签到</div>
+			</div>
+			
+			<div class="mui-grid-view mui-grid-9 sign-block-wrapper">
+				<div class="mui-col-xs-4 mui-col-sm-3 sign-block">
+					<div class="sign-block-title">2016/09/08</div>
+					<div class="sign-block-content">消费满188元，签到送钱8元</div>
+				</div>
+				<div class="mui-col-xs-4 mui-col-sm-3 sign-block">
+					<div class="sign-block-title">2016/09/08</div>
+					<div class="sign-block-content">消费满188元，签到送钱8元</div>
+				</div>
+				<div class="mui-col-xs-4 mui-col-sm-3 sign-block">
+					<div class="sign-block-title">2016/09/08</div>
+					<div class="sign-block-content">消费满188元，签到送钱8元</div>
+				</div>
+				<div class="mui-col-xs-4 mui-col-sm-3 sign-block">
+					<div class="sign-block-title">2016/09/08</div>
+					<div class="sign-block-content">消费满188元，签到送钱8元</div>
+				</div>
+				<div class="mui-col-xs-4 mui-col-sm-3 sign-block">
+					<div class="sign-block-title">2016/09/08</div>
+					<div class="sign-block-content">消费满188元，签到送钱8元</div>
+				</div>
+				<div class="mui-col-xs-4 mui-col-sm-3 sign-block">
+					<div class="sign-block-title">2016/09/08</div>
+					<div class="sign-block-content">消费满188元，签到送钱8元</div>
+				</div>
+				<div class="mui-col-xs-4 mui-col-sm-3 sign-block">
+					<div class="sign-block-title">2016/09/08</div>
+					<div class="sign-block-content">消费满188元，签到送钱8元</div>
+				</div>
+			</div>
+			
+			<div class="activity-content-wrapper">
+				<div class="activity-content-title">活动内容：</div>
+				<div class="activity-content-item">1、为某一次活动所指定的书面计划，具体行动实施办法细则、步骤等；</div>
+				<div class="activity-content-item">2、对具体将要进行的活动进行书面的计划，对每个步骤的详细分析、研究；</div>
+				<div class="activity-content-item">3、尽可能具体的写出方案名称，如“2012年6月25日大学晚会活动方案”。</div>
+			</div>
+		</div>
+		
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script>
+		(function($, win, doc) {
+			$.init();
+
+			
+		})(mui, window, document);
+	</script>
+
+</html>
